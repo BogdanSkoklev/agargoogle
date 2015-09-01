@@ -1,11 +1,95 @@
-# Build and Release Folders
-bin/
-bin-debug/
-bin-release/
+// == == UserScript
+//name Кнопки в агар
+//namespace HTTP: //your.homepage/
+//version 0,1
+//description Ввести что-то полезное
+//author Гусь
+//match Http://welkommagar/
+Не //grant ни
+// == / == UserScript
 
-# Other files and folders
-.settings/
-
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+функционировать  AddButton ()
+{
+    покупатель inpClans =  документ. createElement ("вход");
+    вар inpStop =  документ. createElement ("вход");
+    покупатель inpNicks =  документ. createElement ("вход");
+    вар inpGo =  документ. createElement ("вход");
+ 
+    . inpClans введите  =  "кнопку",
+    . inpClans имя  =  "inpClans";
+    . inpClans значение  =  "Кланы";
+    . inpClans ID  =  "idClans";
+ 
+    . inpGo введите  =  "кнопку",
+    . inpGo имя  =  "inpGo";
+    inpGo. Значение  =      "Перейти";
+    . inpGo ID  =  "idGo";
+ 
+    . inpNicks введите  =  "кнопку",
+    . inpNicks имя  =  "inpNicks";
+    inpNicks. значение  =  "Никс";
+    . inpNicks ID  =  "idNicks";
+ 
+    . inpStop введите  =  "кнопку",
+    . inpStop имя  =  "inpStop";
+    . inpStop значение  =    "Стоп";
+    . inpStop ID  =  "idStop";
+ 
+    документ. Тело. AppendChild (inpClans);
+    документ. Тело. AppendChild (inpStop);
+    документ. Тело. AppendChild (inpNicks);
+    документ. Тело. AppendChild (inpGo);
+  
+    документ. getElementById ("idClans"). OnClick = ClansTimer; 
+    документ. getElementById ("idStop"). OnClick = StopTimer; 
+    документ. getElementById ("idNicks"). OnClick = NicksTimer; 
+    документ. getElementById ("idGo"). OnClick = GoTimer; 
+    документ. getElementById ("idClans"). стиль. Положение = "абсолютный";  
+    документ. getElementById ("idClans".) стиль. левый = "10px";  
+    документ. getElementById ("idClans".) стиль. сверху = "35px";  
+    документ. getElementById ("idStop"). стиль. Положение = "абсолютный";  
+    документ. getElementById ("idStop"). стиль. левый = "10px";  
+    документ. getElementById ("idStop"). стиль. сверху = "65px";  
+    документ. getElementById ("idStop"). стиль. Цвет = "красный";  
+    документ. getElementById ("idNicks"). стиль. Положение = "абсолютный";  
+    документ. getElementById ("idNicks".) стиль. левый = "65px";  
+    документ. getElementById ("idNicks".) стиль. сверху = "35px";  
+    документ. getElementById ("idGo"). стиль. Положение = "абсолютный";  
+    документ. getElementById ("idGo"). стиль. левый = "65px";  
+    документ. getElementById ("idGo"). стиль. сверху = "65px";  
+}
+ 
+AddButton ();
+ 
+вар таймер;
+вар обр = ["[WF] ◁◁ ◀ Гусь ▶ ⊲⊲", "[WF] ◁ ◀ ◁ Гусь⊲ ▶ ⊲", "[WF] ◀ ◁◁ Гусь⊲⊲ ▶"];
+ 
+Функция  ClansTimer ()
+{
+    Таймер =  setInterval (функция () {
+var arr = [ " [Na`Vi] " , " |QSL| " , " |ASP| " , " [BOT] " , " [BNT] " , " [PANZAR] " , " [SP] " , " [APB] " , " [5] " , " [hb] " , " [dem] " , " Twitch/ " , " YT/ " , " [SB] " , " [ZAW] " , " [VEGA] " ];
+вар рэнд =  Математика. этаж (Математика. случайная () * обр. Длина);
+setNick (обр [рэнд] +  "Гусь");
+}, 1);
+}
+ 
+функционировать  NicksTimer ()
+{
+    Таймер =  setInterval (функция () {
+вар обр = ["Россия", "Луна", "Гусь", "Плутон", "Вспышка", "США", "Гейб", "Сад Арго "," YouTube "," Ghost Busters "," Медведев "," Супермен "," Nvidia "];
+вар рэнд =  Математика. этаж (Математика. случайная () * обр. Длина);
+setNick (обр [рэнд]);
+}, 1);
+}
+ 
+функционировать  GoTimer ()
+{
+    Таймер =  setInterval (функция () {
+вар-эль = обр. сдвиг (); . обр нажать (EL); setNick (эль)}, 200);
+}
+ 
+Функция  StopTimer ()
+{
+    clearInterval (таймер);
+    setNick ("[WF] Гусь");
+}
